@@ -42,10 +42,16 @@ bool GameBoard::setTile(char type, int x, int y)
         if (board[x][y] == BLANK)
         {
             board[x][y] = type;
+            player2 = true;
             return true;
         }
     }
     return false;
+}
+
+bool GameBoard::player2Activated()
+{
+    return player2;
 }
 
 void GameBoard::getTileXYBasesOnPixelXY(int pixelX, int pixelY, int& tileX, int& tileY)
@@ -68,7 +74,7 @@ void GameBoard::getTileXYBasesOnPixelXY(int pixelX, int pixelY, int& tileX, int&
     tileY = pixelY / tileSize;
 }
 
-bool GameBoard::checkForClick(SDL_Event& event, char type)
+bool GameBoard::checkForClick(SDL_Event& event, char type, bool playerLost)
 {
     //check for left click
     if (event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_LEFT)
@@ -78,8 +84,12 @@ bool GameBoard::checkForClick(SDL_Event& event, char type)
         getTileXYBasesOnPixelXY(event.button.x, event.button.y, tileX, tileY);
         if (tileX != -1 && tileY != -1)
         {
-            //is valid move, try set it here
-            return setTile(type, tileX, tileY);
+
+            if (playerLost == false)
+            {
+                //is valid move, try set it here
+                return setTile(type, tileX, tileY);
+            }
         }
     }
     return false;

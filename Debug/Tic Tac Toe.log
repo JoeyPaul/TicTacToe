@@ -1,2 +1,4 @@
-﻿  GameBoard.cpp
+﻿  Source.cpp
+C:\Users\joeka\Documents\School Folder\Subjects\ADS\Week 10\Final Assessment Tic Tac Toe\Tic Tac Toe\Source.cpp(170,16): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\joeka\Documents\School Folder\Subjects\ADS\Week 10\Final Assessment Tic Tac Toe\Tic Tac Toe\Source.cpp(500,16): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
   Tic Tac Toe.vcxproj -> C:\Users\joeka\Documents\School Folder\Subjects\ADS\Week 10\Final Assessment Tic Tac Toe\Tic Tac Toe\Debug\Tic Tac Toe.exe

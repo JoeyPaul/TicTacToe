@@ -32,13 +32,18 @@ public:
 	//2d array
 	char board[3][3];
 	//board size
-	int boardX = 500, boardY = 100;
+	//default
+	//int boardX = 500, boardY = 100;
+	//new
+	int boardX = 250, boardY = 150;
 	//tile size
 	int tileSize = 50;
 	//player is
 	char player = CROSS, opponent = NAUGHT;
 
 	int minimaxCount = 0;
+	//is it the second players turn?
+	bool player2 = false;
 
 	//functions
 	GameBoard(SDL_Renderer* renderer);
@@ -46,9 +51,10 @@ public:
 	void clearBoard();
 	bool setTile(char type, int x, int y);
 	void getTileXYBasesOnPixelXY(int pixelX, int pixelY, int& tileX, int& tileY);
-	bool checkForClick(SDL_Event& event, char type);
+	bool checkForClick(SDL_Event& event, char type, bool playerLost);
 	bool checkForWin(char type);
 	bool checkIfAnyPlacesFree();
+	bool player2Activated();
 
 	void draw();
 
